@@ -57,7 +57,13 @@ def upload_csv(request):
                             "order": "before"
                         },
 
-                    ],    "attributeTransformers": []
+                    ],
+                     "globalTransformers": [
+                        {
+                        "name": "charFilter",
+                        "order": "before"
+                        }],
+                    "attributeTransformers": []
     
                     
                 }
