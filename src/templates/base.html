@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .warning{
+        color: red;
+      }
+      input {
+        background-color: #100231;
+        color : rgb(255, 255, 255);
+      }
+      
+      .success{
+        color: green;
+      }
+    </style>
+  </head>
+    
+<body>
+<h1>Place holder</h1>
+
+<h3>
+    Please upload your csv data here.
+</h3>
+
+<h4>
+    Note: Please wait for the algorithm to finish then a download should commence.
+    If there is no downloaded CSV, refresh this page and try again.
+</h4>
+<form action="{% url 'upload_csv' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="data_file"/>
+  <input type="submit" value="Upload & Processing" />
+</form>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} >
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        <div class="{{message.tags}}">{{ message }}</div>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+</body>
+</html>
+
