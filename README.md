@@ -1,5 +1,6 @@
 # Transformer_PPRL
 
+This project is an web User interface, Let you upload and process a csv file.
 To execute this project :  
 1- Download docker,python  
 2- Open your shell and run : docker run --rm -p 8080:8080 mds4ul/pprl-transform:latest  
